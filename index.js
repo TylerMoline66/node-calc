@@ -29,7 +29,7 @@ function doTheMath () {
 
 var initialQuestion = rs.question('Lets do some math together. First, what operation would you like to perform? "/" "*" "-" "+"  '); 
 
-while(initialQuestion === '+' || initialQuestion === '-' || initialQuestion === '*' || initialQuestion === '/'){
+while(/\((.*?)\)/g){
 if (initialQuestion === '/') {
   mathOperation = initialQuestion;
   break;
@@ -44,6 +44,7 @@ if (initialQuestion === '/') {
   break;
 } else {
   console.log('That\'s not a valid operation. Lets start over.')
+  var initialQuestion = rs.question('What operation would you like to perform? "/" "*" "-" "+"  ');
 }
 }
 
